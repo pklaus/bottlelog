@@ -27,7 +27,7 @@ setup(name='bottlelog',
           'Framework :: Bottle',
           'Environment :: Plugins',
           'Topic :: System :: Logging',
-          'Topic :: Internet :: WWW/HTTP :: Site Management'
+          'Topic :: Internet :: WWW/HTTP :: Site Management',
           'Operating System :: OS Independent',
           'License :: OSI Approved :: BSD License',
           'Programming Language :: Python',
