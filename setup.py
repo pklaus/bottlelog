@@ -36,3 +36,4 @@ setup(name='bottlelog',
           'Natural Language :: English',
       ]
 )
+

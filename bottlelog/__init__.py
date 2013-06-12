@@ -80,3 +80,4 @@ class LoggingPlugin(object):
             self.logger.info(msg)
             return body
         return wrapper
+

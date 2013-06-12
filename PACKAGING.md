@@ -40,3 +40,4 @@ Uploading a new source distribution on PyPI works like this:
 ### Resources
 
 * Check out the official guide [Distributing Python Modules](http://docs.python.org/3/distutils/index.html)
+
