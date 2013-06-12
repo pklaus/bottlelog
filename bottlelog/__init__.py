@@ -51,6 +51,7 @@ def format_NCSA_log(request, response, bodylen):
     val['referer'] = request.get_header('Referer','')
     val['agent'] = request.get_header('User-agent','')
     
+    # see http://docs.python.org/3/library/string.html#format-string-syntax
     FORMAT = '{host!s} {logname} {user} [{time}] "{request}" '
     FORMAT += '{status} {size} "{referer}" "{agent}"'
     return FORMAT.format(**val)
