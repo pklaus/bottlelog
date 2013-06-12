@@ -8,7 +8,7 @@ except (IOError, ImportError):
     LDESC = ''
 
 setup(name='bottlelog',
-      version = '0.1',
+      version = '0.2',
       description = 'Apache-like combined logging for Bottle Web Applications',
       long_description = LDESC,
       author = 'Philipp Klaus',

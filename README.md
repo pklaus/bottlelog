@@ -6,10 +6,39 @@ log all requests to your site. It's even imitating
 Apache's combined log format to allow you to use
 any of the many tools for Apache log file analysis.
 
-### Developer's References
+#### Installation
 
-* Python's Logging Cookbook:
-  <http://docs.python.org/3/howto/logging-cookbook.html>
-* Apache's documentation on it's log format:
-  <http://httpd.apache.org/docs/current/mod/mod_log_config.html#logformat>
+Simply install this Python module via
+
+    pip install bottlelog
+
+#### Usage
+
+To add this plugin to your Bottle `app` and log to the file *access.log*, do:
+
+    from bottlelog import LoggingPlugin
+    from logging.handlers import TimedRotatingFileHandler
+
+    handlers = [ TimedRotatingFileHandler('access.log', 'd', 7) , ]
+    
+    app.install(LoggingPlugin(handlers))
+
+#### Known Issues
+
+* Currently the plugin does not properly log the body size for requests being served by `static_file()`.
+
+#### The Author
+
+This Bottle plugin was written by [Philipp Klaus](http://blog.philippklaus.de) in 2013.
+It is published under a *3-clause BSD license*.
+
+#### Developers' Resources
+
+* To read about your options for the logging handler, you may want to read [Python's Logging Cookbook](http://docs.python.org/3/howto/logging-cookbook.html).
+* Documentation on Apache's log format can be found [here](http://httpd.apache.org/docs/current/mod/mod_log_config.html#logformat).
+
+#### General References
+
+* PyPi's [listing of bottlelog](https://pypi.python.org/pypi/bottlelog)
+* The source code for this Python module is [hosted on Github](https://github.com/pklaus/bottlelog).
 

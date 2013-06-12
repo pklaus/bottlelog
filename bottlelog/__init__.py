@@ -17,17 +17,11 @@ from bottle import request, response
 import time
 from datetime import datetime as dt
 import logging
-from logging.handlers import TimedRotatingFileHandler
 from bottle import HTTPResponse
 
 from .timehacks import Local
 
-__all__ = ['filelog']
-
-fh = TimedRotatingFileHandler('access.log', 'd', 7)
-logger = logging.getLogger('bottlelog')
-logger.setLevel(logging.DEBUG)
-logger.addHandler(fh)
+__all__ = ['LoggingPlugin']
 
 def format_NCSA_log(request, response, bodylen):
     """
@@ -63,15 +57,26 @@ def format_with_response_time(*args, rt_ms=0):
     """
     return format_NCSA_log(*args) + " {}/{}".format(int(rt_ms/1000000), rt_ms)
 
-def filelog(callback):
-    def wrapper(*args, **kwargs):
-        start = time.clock()
-        body = callback(*args, **kwargs)
-        runtime = int((time.clock() - start) * 10**6)
-        bodylen = len(body) if not isinstance(body, HTTPResponse) else 0
-        #msg = format_NCSA_log(request, response, bodylen)
-        msg = format_with_response_time(request, response, bodylen, rt_ms=runtime)
-        logger.info(msg)
-        return body
-    return wrapper
+class LoggingPlugin(object):
+    ''' This is the Bottle logging plugin itself. '''
 
+    name = 'logging'
+    api = 2
+
+    def __init__(self, handlers):
+        self.logger = logging.getLogger('bottlelog')
+        self.logger.setLevel(logging.DEBUG)
+        for handler in handlers:
+            self.logger.addHandler(handler)
+
+    def __call__(self, callback):
+        def wrapper(*args, **kwargs):
+            start = time.clock()
+            body = callback(*args, **kwargs)
+            runtime = int((time.clock() - start) * 10**6)
+            bodylen = len(body) if not isinstance(body, HTTPResponse) else 0
+            #msg = format_NCSA_log(request, response, bodylen)
+            msg = format_with_response_time(request, response, bodylen, rt_ms=runtime)
+            self.logger.info(msg)
+            return body
+        return wrapper
