@@ -1,6 +1,6 @@
 ## Packaging And Testing
 
-This is the first Python package that I put on PyPi and thus I'm still learning on how to do this best. This file serves me to remember how I released this package.
+This is the first Python package that I put on PyPI and thus I'm still learning on how to do this best. This file serves me to remember how I released this package.
 
 For general advice on how to structure Python modules,
 refer to [the modules tutorial](http://docs.python.org/3/tutorial/modules.html).
@@ -24,16 +24,16 @@ In my case (I'm using virtualenvwraper), the files are being installed to:
 
 #### Registering with PyPI
 
-The Readme is written in Markdown but PyPi only understands reStructuredText for the modules long description. I use `pandoc` and its Python wrapper `pypandoc` to convert my Markdown to reST. Install them using:
+The Readme is written in Markdown but PyPI only understands reStructuredText for the modules long description. I use `pandoc` and its Python wrapper `pypandoc` to convert my Markdown to reST. Install them using:
 
     brew install pandoc
     pip install pypandoc
 
-Now register or update the project on PyPi (as pypandoc is not yet Python3 ready, we need to use Python 2.7 to upload our package):
+Now register or update the project on PyPI (as pypandoc is not yet Python3 ready, we need to use Python 2.7 to upload our package):
 
     python2.7 setup.py register
 
-Uploading a new source distribution on PyPi works like this:
+Uploading a new source distribution on PyPI works like this:
 
     python2.7 setup.py sdist upload
 

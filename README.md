@@ -39,6 +39,6 @@ It is published under a *3-clause BSD license*.
 
 #### General References
 
-* PyPi's [listing of bottlelog](https://pypi.python.org/pypi/bottlelog)
+* PyPI's [listing of bottlelog](https://pypi.python.org/pypi/bottlelog)
 * The source code for this Python module is [hosted on Github](https://github.com/pklaus/bottlelog).
 
