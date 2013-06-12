@@ -35,18 +35,19 @@ def format_NCSA_log(request, response, bodylen):
     val['host'] = request.remote_addr or request.remote_route[0]
     val['logname'] = '-'
     val['user'] = '-'
-    #val['time'] = '[18/Sep/2011:19:18:28 -0400]'
     val['time'] = dt.now(tz=Local).strftime("%d/%b/%Y:%H:%M:%S %z")
-    #val['request'] = request.headers[0]
-    val['request'] = "{} {} HTTP/1.1".format(request.method, request.path)
+    val['request'] = "{} {} {}".format(
+          request.method,
+          request.path,
+          request.environ.get('SERVER_PROTOCOL', '')
+        )
     val['status'] = response.status_code
-    #val['size'] = len(response.body)
     val['size'] = bodylen
     val['referer'] = request.get_header('Referer','')
     val['agent'] = request.get_header('User-agent','')
     
     # see http://docs.python.org/3/library/string.html#format-string-syntax
-    FORMAT = '{host!s} {logname} {user} [{time}] "{request}" '
+    FORMAT = '{host} {logname} {user} [{time}] "{request}" '
     FORMAT += '{status} {size} "{referer}" "{agent}"'
     return FORMAT.format(**val)
 
