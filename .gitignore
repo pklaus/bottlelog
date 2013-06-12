@@ -1,0 +1,9 @@
+*.swp
+
+*.pyc
+*.pyo
+__pycache__
+bottlelog.egg*
+dist/
+MANIFEST
+
