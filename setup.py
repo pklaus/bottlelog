@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from distutils.core import setup
+try:
+    import pypandoc
+    LDESC = pypandoc.convert('README.md', 'rst')
+except (IOError, ImportError):
+    LDESC = ''
 
 setup(name='bottlelog',
       version = '0.1',
       description = 'Apache-like combined logging for Bottle Web Applications',
-      long_description = '',
+      long_description = LDESC,
       author = 'Philipp Klaus',
       author_email = 'philipp.l.klaus@web.de',
       url = 'https://github.com/pklaus/bottlelog',
