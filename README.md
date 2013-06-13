@@ -25,6 +25,7 @@ To add this plugin to your Bottle `app` and log to the file *access.log*, do:
 
 #### Known Issues
 
+* As of v0.2 only successful requests are being logged (HTTP code 200). This is a major deal breaker and I'm investigating the issue.
 * Currently the plugin does not properly log the body size for requests being served by `static_file()`.
 
 #### The Author
