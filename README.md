@@ -1,3 +1,7 @@
+## Attention:
+
+This Bottle plugin is **no longer in development**. If you need request logging, have a look at the WSGI middleware and successor [wsgi-request-logger](https://github.com/pklaus/wsgi-request-logger).
+
 ## Apache-like combined logging for Bottle Web Applications
 
 This is a plugin for Bottle web applications.
