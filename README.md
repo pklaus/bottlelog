@@ -1,6 +1,6 @@
 ## Attention:
 
-This Bottle plugin is **no longer in development**. If you need request logging, have a look at the WSGI middleware and successor [wsgi-request-logger](https://github.com/pklaus/wsgi-request-logger).
+This Bottle plugin is **no longer in development**. If you need request logging, have a look at the WSGI middleware and successor [wsgi-request-logger][].
 
 ## Apache-like combined logging for Bottle Web Applications
 
@@ -12,9 +12,11 @@ any of the many tools for Apache log file analysis.
 
 #### Installation
 
-Simply install this Python module via
+You can install this Python module via
 
-    pip install bottlelog
+    pip install https://github.com/pklaus/bottlelog/archive/master.zip
+
+**But again: I highly recommend using [wsgi-request-logger][] instead!!**
 
 #### Usage
 
@@ -47,3 +49,4 @@ It is published under a *3-clause BSD license*.
 * PyPI's [listing of bottlelog](https://pypi.python.org/pypi/bottlelog)
 * The source code for this Python module is [hosted on Github](https://github.com/pklaus/bottlelog).
 
+[wsgi-request-logger]: https://github.com/pklaus/wsgi-request-logger
